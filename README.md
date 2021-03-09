@@ -1,8 +1,8 @@
 # U1 Vlastní jazyk
 
 ## Datové typy
-*int: 32bit
-*float: 32bit
+* int: 32bit
+* float: 32bit
 
 ## Operace a operátory
 * sčítání, odčítání: +, -
