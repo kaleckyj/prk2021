@@ -6,9 +6,9 @@
 
 ## Operace a operátory
 * sčítání, odčítání: +, -
-* násobení, dělení: *,/
+* násobení, dělení: *, /
 * modulo: %
-* závorky: (,)
+* závorky: (, )
 * inkrement, dekrement: ++, --
 
 ## Funkce
