@@ -43,3 +43,12 @@ floor ::= "floor(" float ")" ;
 abs ::= "abs(" float ")" | "abs(" integer ")";  
 
 expr ::= (expr operators expr) | ceil | round | floor | abs  
+
+# U3 Lexikální analyzátor
+* TODO
+
+# U4 Syntaktický analyzátor
+* TODO
+
+# U5: Finále
+* TODO
