@@ -31,18 +31,19 @@ float ones = 1,111;
 digit ::= '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'  
 number ::= '0' | digit  
 integer ::= '0' | (number)*  
-float ::= 'integer' ',' 'integer'  
+float ::= integer ',' integer  
   
 add_op ::= '+' | '-'  
 mul_op ::= '*' | '/'  
 mod_op ::= '%'  
-operators ::= add_op | mul_op | mod_op;  
-ceil ::= "ceil(" float ")" ;  
-round ::= "round(" float ")" ;  
-floor ::= "floor(" float ")" ;  
-abs ::= "abs(" float ")" | "abs(" integer ")";  
+inc_op ::= '++' | '--'  
+operators ::= add_op | mul_op | mod_op   
+ceil ::= "ceil(" float ")"  
+round ::= "round(" float ")"  
+floor ::= "floor(" float ")"  
+abs ::= "abs(" float ")" | "abs(" integer ")"  
   
-expr ::= (expr operators expr) | ceil | round | floor | abs  
+expr ::= (expr operators expr) | (expr inc_op) | ceil | round | floor | abs  
 
 # U3 Lexikální analyzátor
 * TODO
