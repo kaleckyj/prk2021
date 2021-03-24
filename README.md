@@ -17,7 +17,7 @@
 4. +, -
 
 ## Příklad deklarace a inicializace proměnných
-int number = 8;
+int number = 8;  
 float ones = 1,111;
 
 ## Funkce
