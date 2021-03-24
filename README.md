@@ -41,7 +41,7 @@ ceil ::= "ceil(" float ")" ;
 round ::= "round(" float ")" ;  
 floor ::= "floor(" float ")" ;  
 abs ::= "abs(" float ")" | "abs(" integer ")";  
-
+  
 expr ::= (expr operators expr) | ceil | round | floor | abs  
 
 # U3 Lexikální analyzátor
