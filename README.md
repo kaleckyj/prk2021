@@ -33,10 +33,10 @@ integer ::= '0' | (number)+
 float ::= integer ',' integer  
 var ::= float | integer  
 
-name ::= [a-z]+ | [A-Z]+
-int_decl ::= "int " name " := " integer
-float_decl ::= "float " name " := " float
-decl ::= int_decl | float_decl
+name ::= [a-z]+ | [A-Z]+  
+int_decl ::= "int " name " = " integer  
+float_decl ::= "float " name " = " float  
+decl ::= int_decl | float_decl  
   
 add_op ::= '+' | '-'  
 mul_op ::= '*' | '/'  
