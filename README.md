@@ -49,12 +49,3 @@ floor ::= "floor(" float ")"
 abs ::= "abs(" var ")"
   
 expr ::= (declaration | (expr bin_ops expr) | (expr inc_op) | ceil | round | floor | abs )  
-
-# U3 Lexikální analyzátor
-* ...
-
-# U4 Syntaktický analyzátor
-* ...
-
-# U5: Finále
-* ...
