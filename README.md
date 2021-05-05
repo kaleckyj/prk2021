@@ -29,16 +29,6 @@ float ones = 1,111;
 
 # U2 Gramatika
 * [soubor .g4](https://github.com/kaleckyj/prk2021/blob/main/Calc.g4)  
-* dle antlr  
-* v souboru Calc.g4, volám z cmd příkazy: 
-``` 
-   antlr4 Calc.g4
-   javac Calc*.java
-   grun Calc calc -gui
-```
-* zadat testovaci příklad, ukončit ctrl+Z (windows)    
-* java MainVisitor test_ok.calc spustí visitor test vstupu  
-
 ```
 grammar Calc;
 
@@ -81,6 +71,14 @@ NEWLINE: [\r\n]+ ;
 fragment NUMBER: ('0' .. '9') ;
 fragment COMMA: (',') ;
 ```
+* v příkazové řádce pro zobrazení stromu: 
+``` 
+   antlr4 Calc.g4
+   javac Calc*.java
+   grun Calc calc -gui
+```
+* zadat testovaci příklad(y, oddělit řádky), ukončit ctrl+Z (windows)    
+* java MainVisitor test_ok.calc spustí visitor test vstupu  
 
 ##Testovací soubor test_ok
 * [OK test](https://github.com/kaleckyj/prk2021/blob/main/test_ok.calc)  
