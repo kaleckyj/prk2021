@@ -28,24 +28,74 @@ float ones = 1,111;
 (a * b) / abs(a++) + ceil(round(a--) % floor(b))
 
 # U2 Gramatika
-number ::= '0' | [1-9]   
-integer ::= '0' | (number)+  
-float ::= integer ',' integer  
-var ::= float | integer  
+*dle antlr  
+*v souboru Calc.g4, volám z cmd příkazy: 
+``` 
+   antlr4 Calc.g4
+   javac Calc*.java
+   grun Calc calc -gui
+```
+*zadat testovaci příklad, ukončit ctrl+Z (windows)  
+*java MainVisitor test_ok.calc spustí visitor test vstupu
 
-name ::= [a-z]+ | [A-Z]+  
-int_decl ::= "int " name " = " integer  
-float_decl ::= "float " name " = " float  
-decl ::= int_decl | float_decl  
-  
-add_op ::= '+' | '-'  
-mul_op ::= '*' | '/'  
-mod_op ::= '%'  
-inc_op ::= "++" | "--"  
-bin_ops ::= add_op | mul_op | mod_op   
-ceil ::= "ceil(" float ")"  
-round ::= "round(" float ")"  
-floor ::= "floor(" float ")"  
-abs ::= "abs(" var ")"
-  
-expr ::= (declaration | (expr bin_ops expr) | (expr inc_op) | ceil | round | floor | abs )  
+```
+grammar Calc;
+
+calc:	line+;
+
+line:	expr                            # expression
+    |	var ID '=' val  NEWLINE         # assign
+    |   NEWLINE                         # blank
+    ;
+
+var:	'int' | 'float';
+
+expr:   expr op=('*'|'/'|'%') expr      # mulDivMod
+    |   expr op=('+'|'-') expr          # addSub
+    |   op=('++'|'--') expr             # incPre
+    |   expr op=('++'|'--')             # incPost
+    |	'abs(' expr ')'                 # abs
+    |   'ceil(' expr ')'                # ceil
+    |   'floor(' expr ')'               # floor
+    |   'round(' expr ')'               # round
+    |   '('expr')'                      # parenth
+    |   FLOAT                           # float
+    |   INT                             # int
+    ;
+
+MUL:    '*';
+DIV:    '/';
+MOD:    '%';
+ADD:    '+';
+SUB:    '-';
+INC:    '++';
+DEC:    '--';
+
+WHITESPACE: (' ' | '\t') -> skip;
+ID: [a-zA-Z]+;
+INT: NUMBER+ ;
+FLOAT: NUMBER+ (COMMA NUMBER+)? ;
+NEWLINE: [\r\n]+ ;
+
+fragment NUMBER: ('0' .. '9') ;
+fragment COMMA: (',') ;
+```
+
+##Testovací soubor test_ok
+```
+1
+2 + 3 * 2
+--5++
+--2 % round(5,5)
+1 + (--5) * (abs(1-5)%2)
+int cislo = (20+5)--
+```
+![OK](test_ok.png)
+```
+-1
+2 ++ 3
+abs5
+5 4 3 2 1
+ceil()
+int cislo = a
+```
