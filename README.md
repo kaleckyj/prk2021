@@ -79,8 +79,7 @@ fragment COMMA: (',') ;
 ```
 * zadat testovaci příklad(y, oddělit řádky), ukončit ctrl+Z (windows)    
 * java MainVisitor test_ok.calc spustí visitor test vstupu  
-
-##Testovací soubor test_ok
+## Testovací soubor test_ok  
 * [OK test](https://github.com/kaleckyj/prk2021/blob/main/test_ok.calc)  
 ```
 1
@@ -90,8 +89,8 @@ fragment COMMA: (',') ;
 1 + (--5) * (abs(1-5)%2)
 int cislo = (20+5)--
 ```
-![OK](test_ok.png)
-## Testovací soubor test_fail
+![OK](test_ok.png)  
+## Testovací soubor test_fail  
 * [FAIL test](https://github.com/kaleckyj/prk2021/blob/main/test_fail.calc)  
 ```
 -1
