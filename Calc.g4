@@ -1,13 +1,14 @@
 grammar Calc;
 
-calc:	line+;
-
+calc:	line*;
 line:	expr NEWLINE                    # expression
-    |	var ID '=' expr NEWLINE         # assign
+    |	decl NEWLINE			# declare
     |   NEWLINE                         # blank
     ;
 
 var:	'int' | 'float';
+decl:	var name '=' expr;
+name:	ID;
 
 expr:   expr op=('*'|'/'|'%') expr      # mulDivMod
     |   expr op=('+'|'-') expr          # addSub
@@ -20,6 +21,8 @@ expr:   expr op=('*'|'/'|'%') expr      # mulDivMod
     |   '('expr')'                      # parenth
     |   FLOAT                           # float
     |   INT                             # int
+    |	name '=' expr			# assignment
+    |	name				# variable
     ;
 
 MUL:    '*';

@@ -32,14 +32,15 @@ float ones = 1,111;
 ```
 grammar Calc;
 
-calc:	line+;
-
-line:	expr                            # expression
-    |	var ID '=' val  NEWLINE         # assign
+calc:	line*;
+line:	expr NEWLINE                    # expression
+    |	decl NEWLINE			# declare
     |   NEWLINE                         # blank
     ;
 
 var:	'int' | 'float';
+decl:	var name '=' expr;
+name:	ID;
 
 expr:   expr op=('*'|'/'|'%') expr      # mulDivMod
     |   expr op=('+'|'-') expr          # addSub
@@ -52,6 +53,8 @@ expr:   expr op=('*'|'/'|'%') expr      # mulDivMod
     |   '('expr')'                      # parenth
     |   FLOAT                           # float
     |   INT                             # int
+    |	name '=' expr			# assignment
+    |	name				# variable
     ;
 
 MUL:    '*';
@@ -70,15 +73,22 @@ NEWLINE: [\r\n]+ ;
 
 fragment NUMBER: ('0' .. '9') ;
 fragment COMMA: (',') ;
+
 ```
-* v příkazové řádce pro zobrazení stromu: 
+## Sestavení lexeru a parseru: 
+* v cmd, gramatika v souboru Calc.g4  
 ``` 
    antlr4 Calc.g4
-   javac Calc*.java
+   javac *.java
+```
+* zobrazení stromu (zadat testovaci příklad(y, oddělit řádky), ukončit ctrl+Z [windows]): 
+``` 
    grun Calc calc -gui
 ```
-* zadat testovaci příklad(y, oddělit řádky), ukončit ctrl+Z (windows)    
-* java MainVisitor test_ok.calc spustí visitor test vstupu  
+![OK](test_ok.png)   
+## Spuštění kalkulačky
+* java MainCalc test_ok.calc spustí kalkulačku nad test_ok.calc souborem  
+![OK](test_ok_cmd.png)   
 ## Testovací soubor test_ok  
 * [OK test](https://github.com/kaleckyj/prk2021/blob/main/test_ok.calc)  
 ```
@@ -89,7 +99,6 @@ fragment COMMA: (',') ;
 1 + (--5) * (abs(1-5)%2)
 int cislo = (20+5)--
 ```
-![OK](test_ok.png)  
 ## Testovací soubor test_fail  
 * [FAIL test](https://github.com/kaleckyj/prk2021/blob/main/test_fail.calc)  
 ```

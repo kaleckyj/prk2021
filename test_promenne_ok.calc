@@ -1,0 +1,6 @@
+int cislo = (20+5)--
+cislo = cislo + 11
+cislo % 5
+cislo = 0
+cislo = floor(5,5)
+cislo = cislo + cislo

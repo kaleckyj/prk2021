@@ -3,4 +3,7 @@
 --5++
 --2 % round(5,5)
 1 + (--5) * (abs(1-5)%2)
+5,6*2,00
 int cislo = (20+5)--
+cislo + ceil(0,9999)%1
+cislo = cislo + 11
