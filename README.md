@@ -27,7 +27,7 @@ float ones = 1,111;
 ## Správný výraz
 (a * b) / abs(a++) + ceil(round(a--) % floor(b))  
 
-# U2 Gramatika
+# U2, U3, U4 Gramatika
 * [soubor .g4](https://github.com/kaleckyj/prk2021/blob/main/antlr/Calc.g4)  
 ```
 grammar Calc;
@@ -86,12 +86,14 @@ fragment COMMA: (',') ;
    grun Calc calc -gui
 ```
 ![OK](tests/test_ok.png)   
-## Spuštění kalkulačky  
-*  kalkulačka nad test_ok.calc souborem:  
+# U5 Kalkulačka  
+*  spuštěná nad test_ok.calc souborem:  
 ``` 
    java MainCalc test_ok.calc
 ```
 ![OK](tests/test_ok_cmd.png)   
+*  funkci zajištuje soubor [MyCalcListener](https://github.com/kaleckyj/prk2021/blob/main/antlr/MyCalcListener.java)    
+*  spouští se přes [MainCalc](https://github.com/kaleckyj/prk2021/blob/main/antlr/MainCalc.java  
 ## Testovací soubor test_ok  
 * [OK test](https://github.com/kaleckyj/prk2021/blob/main/tests/test_ok.calc)  
 ```
