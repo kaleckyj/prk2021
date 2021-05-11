@@ -86,8 +86,11 @@ fragment COMMA: (',') ;
    grun Calc calc -gui
 ```
 ![OK](test_ok.png)   
-## Spuštění kalkulačky
-* java MainCalc test_ok.calc spustí kalkulačku nad test_ok.calc souborem  
+## Spuštění kalkulačky  
+*  kalkulačka nad test_ok.calc souborem:  
+``` 
+   java MainCalc test_ok.calc
+```
 ![OK](test_ok_cmd.png)   
 ## Testovací soubor test_ok  
 * [OK test](https://github.com/kaleckyj/prk2021/blob/main/test_ok.calc)  
@@ -97,7 +100,10 @@ fragment COMMA: (',') ;
 --5++
 --2 % round(5,5)
 1 + (--5) * (abs(1-5)%2)
+5,6*2,00
 int cislo = (20+5)--
+cislo + ceil(0,9999)%1
+cislo = cislo + 11
 ```
 ## Testovací soubor test_fail  
 * [FAIL test](https://github.com/kaleckyj/prk2021/blob/main/test_fail.calc)  
