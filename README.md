@@ -93,7 +93,7 @@ fragment COMMA: (',') ;
 ```
 ![OK](tests/test_ok_cmd.png)   
 *  funkci zajištuje soubor [MyCalcListener](https://github.com/kaleckyj/prk2021/blob/main/antlr/MyCalcListener.java)    
-*  spouští se přes [MainCalc](https://github.com/kaleckyj/prk2021/blob/main/antlr/MainCalc.java  
+*  spouští se přes [MainCalc](https://github.com/kaleckyj/prk2021/blob/main/antlr/MainCalc.java)    
 ## Testovací soubor test_ok  
 * [OK test](https://github.com/kaleckyj/prk2021/blob/main/tests/test_ok.calc)  
 ```
