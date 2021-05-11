@@ -28,13 +28,13 @@ float ones = 1,111;
 (a * b) / abs(a++) + ceil(round(a--) % floor(b))  
 
 # U2 Gramatika
-* [soubor .g4](https://github.com/kaleckyj/prk2021/blob/main/Calc.g4)  
+* [soubor .g4](https://github.com/kaleckyj/prk2021/blob/main/antlr/Calc.g4)  
 ```
 grammar Calc;
 
 calc:	line*;
 line:	expr NEWLINE                    # expression
-    |	decl NEWLINE			# declare
+    |	decl NEWLINE			        # declare
     |   NEWLINE                         # blank
     ;
 
@@ -53,8 +53,8 @@ expr:   expr op=('*'|'/'|'%') expr      # mulDivMod
     |   '('expr')'                      # parenth
     |   FLOAT                           # float
     |   INT                             # int
-    |	name '=' expr			# assignment
-    |	name				# variable
+    |	name '=' expr			        # assignment
+    |	name				            # variable
     ;
 
 MUL:    '*';
@@ -85,15 +85,15 @@ fragment COMMA: (',') ;
 ``` 
    grun Calc calc -gui
 ```
-![OK](test_ok.png)   
+![OK](tests/test_ok.png)   
 ## Spuštění kalkulačky  
 *  kalkulačka nad test_ok.calc souborem:  
 ``` 
    java MainCalc test_ok.calc
 ```
-![OK](test_ok_cmd.png)   
+![OK](tests/test_ok_cmd.png)   
 ## Testovací soubor test_ok  
-* [OK test](https://github.com/kaleckyj/prk2021/blob/main/test_ok.calc)  
+* [OK test](https://github.com/kaleckyj/prk2021/blob/main/tests/test_ok.calc)  
 ```
 1
 2 + 3 * 2
@@ -106,7 +106,7 @@ cislo + ceil(0,9999)%1
 cislo = cislo + 11
 ```
 ## Testovací soubor test_fail  
-* [FAIL test](https://github.com/kaleckyj/prk2021/blob/main/test_fail.calc)  
+* [FAIL test](https://github.com/kaleckyj/prk2021/blob/main/tests/test_fail.calc)  
 ```
 -1
 2 ++ 3
